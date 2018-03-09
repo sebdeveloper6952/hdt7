@@ -5,11 +5,22 @@
  */
 package hdt7;
 
+import java.util.Iterator;
+
 /**
  *
  * @author sevic69
  */
 public interface IBinaryTree<E>
 {
-    
+    public IBinaryTree<E> left();
+    public IBinaryTree<E> right();
+    public IBinaryTree<E> parent();
+    public void setLeft(IBinaryTree<E> newLeft);
+    public void setRight(IBinaryTree<E> newRight);
+    public Iterator<E> iterator();
+    public boolean isLeftChild();
+    public boolean isRightChild();
+    public E value();
+    public void setValue(E newValue);
 }
