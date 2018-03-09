@@ -1,0 +1,15 @@
+#netbeans
+/nbproject/private/
+/build/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+#java
+*.class
+
+#who knows
+core
+/hdt6/nbproject/private/
+/hdt6/build/
+/hdt7/nbproject/private/
