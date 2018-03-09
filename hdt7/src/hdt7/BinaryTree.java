@@ -24,76 +24,76 @@ public class BinaryTree<E> implements IBinaryTree<E>
     
     public BinaryTree(E value)
     {
-        
+        this.value = value;
     }
     
     public BinaryTree(E value, IBinaryTree<E> left, IBinaryTree<E> right)
     {
-        
+        this(value);
+        this.left = left;
+        this.right = right;
     }
     
     @Override
-    public IBinaryTree<E> left() 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public IBinaryTree<E> left() { return left; }
 
     @Override
-    public IBinaryTree<E> right() 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public IBinaryTree<E> right() { return right; }
 
     @Override
-    public IBinaryTree<E> parent() 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public IBinaryTree<E> parent() { return parent; }
 
     @Override
-    public void setLeft(IBinaryTree<E> newLeft) 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public void setLeft(IBinaryTree<E> newLeft) { left = newLeft; }
 
     @Override
-    public void setRight(IBinaryTree<E> newRight) 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public void setRight(IBinaryTree<E> newRight) { right = newRight; }
 
     @Override
     public Iterator<E> iterator() 
     {
+        // lolito
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public boolean isLeftChild() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(parent != null)
+        {
+            IBinaryTree left = parent.left();
+            return this == left;
+        }
+        return false;
     }
 
     @Override
     public boolean isRightChild() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(parent != null)
+        {
+            IBinaryTree right = parent.right();
+            return this == right;
+        }
+        return false;
     }
 
     @Override
-    public E value() 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    public E value() { return value; }
 
     @Override
-    public void setValue(E newValue) 
+    public void setValue(E newValue) { value = newValue; }
+    
+    protected void setParent(IBinaryTree<E> newParent) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!isEmpty())
+        {
+            parent = newParent;
+        }
     }
     
-    public void setParent(IBinaryTree<E> newParent) 
+    protected boolean isEmpty()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return value == null;
     }
 }
