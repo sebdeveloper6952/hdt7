@@ -8,12 +8,14 @@ package hdt7;
 import java.util.Iterator;
 
 /**
- *
- * @author sevic69
+ * Sebastian Arriola 11463
+ * Fernando Figueroa 14175
+ * Jose Andres Arenas 14470
  */
 public class BinarySearchTree<E extends Comparable> implements 
         IBinarySearchTree<E>
 {
+    // referencia a la raiz de nuestro arbol binario
     protected IBinaryTree _tree;
     
     

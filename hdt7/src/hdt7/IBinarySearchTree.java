@@ -8,8 +8,9 @@ package hdt7;
 import java.util.Iterator;
 
 /**
- *
- * @author sevic69
+ * Sebastian Arriola 11463
+ * Fernando Figueroa 14175
+ * Jose Andres Arenas 14470
  */
 public interface IBinarySearchTree<E extends Comparable>
 {
