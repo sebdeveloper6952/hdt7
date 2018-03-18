@@ -22,27 +22,6 @@ public class BinarySearchTree<E extends Comparable<E>>
         size = 0;
     }
     
-    
-    protected BinaryTree steFindnode(BinaryTree<E> node,E value)
-    {
-        if(root.isEmpty()) return node;
-        else
-        {
-               int steC =  node.value().compareTo(value);
-               if (steC == 0 )return node;
-               else if (steC > 0)
-               {
-                   return steFindnode(node.left(), value);
-               }
-               else 
-               {
-                  return steFindnode(node.right(), value); 
-               }
-        }
-    }    
-    
-    
-    
     public boolean isEmpty() 
     {
         return root.isEmpty();
@@ -70,12 +49,12 @@ public class BinarySearchTree<E extends Comparable<E>>
         }
         else
         {
-          BinaryTree foundNode = steFindnode(root, value);
+          BinaryTree<E> foundNode = steFindnode(root, value);
           foundNode.setValue(value);
           if (foundNode.left()== null)
-              foundNode.setLeft(new BinaryTree());
+              foundNode.setLeft(new BinaryTree<E>());
           if (foundNode.right()== null)
-              foundNode.setRight(new BinaryTree());
+              foundNode.setRight(new BinaryTree<E>());
         }
         size++;       
     }
@@ -109,10 +88,28 @@ public class BinarySearchTree<E extends Comparable<E>>
         return list;
     }
     
+    protected BinaryTree steFindnode(BinaryTree<E> node,E value)
+    {
+        if(node.isEmpty()) return node;
+        else
+        {
+           int steC =  node.value().compareTo(value);
+           if (steC == 0 )return node;
+           else if (steC > 0)
+           {
+               return steFindnode(node.left(), value);
+           }
+           else 
+           {
+              return steFindnode(node.right(), value); 
+           }
+        }
+    }    
+    
     protected void enOrden(BinaryTree<E> node, List<E> list)
     {
-        if(node.left() != null) enOrden(node.left(), list);
+        if(node.left() != null && !node.left().isEmpty()) enOrden(node.left(), list);
         list.add(node.value());
-        if(node.right() != null) enOrden(node.right(), list);
+        if(node.right() != null && !node.right().isEmpty()) enOrden(node.right(), list);
     }
 }
