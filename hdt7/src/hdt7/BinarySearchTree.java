@@ -14,8 +14,20 @@ import java.util.Iterator;
  */
 public class BinarySearchTree<E extends Comparable<E>>
 {
+    
+    public BinarySearchTree(){
+        _tree = new BinaryTree<>();
+        size = 0;
+        
+        
+        
+        
+    }
+    
     // referencia a la raiz de nuestro arbol binario
     protected BinaryTree _tree;
+    int size;
+
     
     public boolean isEmpty() 
     {
@@ -31,7 +43,7 @@ public class BinarySearchTree<E extends Comparable<E>>
     
     public int size() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+       return size;
     }
 
     
@@ -57,11 +69,4 @@ public class BinarySearchTree<E extends Comparable<E>>
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    
-    public Iterator<E> iterator() 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
 }

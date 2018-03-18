@@ -26,8 +26,8 @@ public class BinaryTree<E>
     public BinaryTree(E value)
     {
         this.value = value;
-        left = new BinaryTree<>();
-        right = new BinaryTree<>();
+        setLeft(new BinaryTree<>());
+        setRight(new BinaryTree<>());
     }
     
     public BinaryTree(E value, BinaryTree<E> left, BinaryTree<E> right)
@@ -37,32 +37,21 @@ public class BinaryTree<E>
         if(right != null) setRight(right);
     }
     
-    
     public BinaryTree<E> left() { return left; }
-
-    
     public BinaryTree<E> right() { return right; }
-
-    
     public BinaryTree<E> parent() { return parent; }
 
     public void setLeft(BinaryTree<E> newLeft) 
     { 
-        left = newLeft; 
+        newLeft.setParent(this);
     }
 
-    public void setRight(BinaryTree<E> newRight) 
+    public void setRight(BinaryTree<E> newRight)
     { 
-        right = newRight; 
+        newRight.setParent(this);
     }
     
-    public Iterator<E> iterator() 
-    {
-        // lolito
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
-    public boolean isLeftChild() 
+    public boolean isLeftChild()
     {
         if(parent != null)
         {
