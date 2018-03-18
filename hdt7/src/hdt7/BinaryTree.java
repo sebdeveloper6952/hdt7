@@ -43,11 +43,13 @@ public class BinaryTree<E>
 
     public void setLeft(BinaryTree<E> newLeft) 
     { 
+        left = newLeft;
         newLeft.setParent(this);
     }
 
     public void setRight(BinaryTree<E> newRight)
     { 
+        right = newRight;
         newRight.setParent(this);
     }
     
