@@ -5,7 +5,9 @@
  */
 package hdt7;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Sebastian Arriola 11463
@@ -16,7 +18,7 @@ public class BinarySearchTree<E extends Comparable<E>>
 {
     
     // referencia a la raiz de nuestro arbol binario
-    protected BinaryTree root;
+    protected BinaryTree<E> root;
     int size;
     
     public BinarySearchTree()
@@ -45,7 +47,7 @@ public class BinarySearchTree<E extends Comparable<E>>
     
     public void add(E value) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     
@@ -64,5 +66,23 @@ public class BinarySearchTree<E extends Comparable<E>>
     public E remove(E value) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    /**
+     * Recorre el arbol en orden y devuelve los nodos en una lista.
+     * @return Los nodos en una lista.
+     */
+    public List<E> enOrden()
+    {
+        List<E> list = new ArrayList<>();
+        enOrden(root, list);
+        return list;
+    }
+    
+    protected void enOrden(BinaryTree<E> node, List<E> list)
+    {
+        if(node.left() != null) enOrden(node.left(), list);
+        list.add(node.value());
+        if(node.right() != null) enOrden(node.right(), list);
     }
 }

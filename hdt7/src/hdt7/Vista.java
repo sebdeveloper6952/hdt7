@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -110,7 +111,7 @@ public class Vista extends javax.swing.JFrame {
         jButton3.setText("Traducir");
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 580, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 670));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,6 +153,13 @@ public class Vista extends javax.swing.JFrame {
                 {
                     s.close();
                 }
+            }
+            List<Association<String, String>> list = steArbol.enOrden();
+            for(int i = 0; i < list.size(); i++)
+            {
+                Association<String,String> steA = list.get(i);
+                jTextArea1.append(steA.key + "," + steA.value);
+                jTextArea1.append("\n");
             }
         }
     }//GEN-LAST:event_jButton1MouseClicked

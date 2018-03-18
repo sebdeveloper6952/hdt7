@@ -42,12 +42,14 @@ public class BinaryTree<E>
     public BinaryTree<E> parent() { return parent; }
 
     public void setLeft(BinaryTree<E> newLeft) 
-    { 
+    {
+        left = newLeft;
         newLeft.setParent(this);
     }
 
     public void setRight(BinaryTree<E> newRight)
-    { 
+    {
+        right = newRight;
         newRight.setParent(this);
     }
     
@@ -77,10 +79,7 @@ public class BinaryTree<E>
     
     protected void setParent(BinaryTree<E> newParent) 
     {
-        if(!isEmpty())
-        {
-            parent = newParent;
-        }
+        parent = newParent;
     }
     
     protected boolean isEmpty()
