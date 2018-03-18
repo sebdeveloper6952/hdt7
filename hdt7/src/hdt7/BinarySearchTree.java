@@ -15,23 +15,19 @@ import java.util.Iterator;
 public class BinarySearchTree<E extends Comparable<E>>
 {
     
-    public BinarySearchTree(){
-        _tree = new BinaryTree<>();
-        size = 0;
-        
-        
-        
-        
-    }
-    
     // referencia a la raiz de nuestro arbol binario
-    protected BinaryTree _tree;
+    protected BinaryTree root;
     int size;
-
+    
+    public BinarySearchTree()
+    {
+        root = new BinaryTree<>();
+        size = 0;
+    }
     
     public boolean isEmpty() 
     {
-        return _tree.isEmpty();
+        return root.isEmpty();
     }
 
     
