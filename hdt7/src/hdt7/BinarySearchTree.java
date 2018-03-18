@@ -43,7 +43,7 @@ public class BinarySearchTree<E extends Comparable<E>>
     
     public int size() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+       return size;
     }
 
     
