@@ -22,8 +22,9 @@ public class BinarySearchTree<E extends Comparable<E>>
     public BinarySearchTree()
     {
         root = new BinaryTree<>();
-        size = 0;    
-
+        size = 0;
+    }
+    
     public boolean isEmpty() 
     {
         return root.isEmpty();
