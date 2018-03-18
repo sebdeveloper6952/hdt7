@@ -12,79 +12,81 @@ import java.util.Iterator;
  * Fernando Figueroa 14175
  * Jose Andres Arenas 14470
  */
-public class BinaryTree<E> implements IBinaryTree<E>
+public class BinaryTree<E>
 {
     protected E value;
-    protected IBinaryTree<E> parent, left, right;
+    protected BinaryTree<E> parent, left, right;
     
     public BinaryTree()
     {
-        
+        value = null;
+        parent = left = right = null;
     }
     
     public BinaryTree(E value)
     {
         this.value = value;
+        left = new BinaryTree<>();
+        right = new BinaryTree<>();
     }
     
-    public BinaryTree(E value, IBinaryTree<E> left, IBinaryTree<E> right)
+    public BinaryTree(E value, BinaryTree<E> left, BinaryTree<E> right)
     {
         this(value);
-        this.left = left;
-        this.right = right;
+        if(left != null) setLeft(left); 
+        if(right != null) setRight(right);
     }
     
-    @Override
-    public IBinaryTree<E> left() { return left; }
+    
+    public BinaryTree<E> left() { return left; }
 
-    @Override
-    public IBinaryTree<E> right() { return right; }
+    
+    public BinaryTree<E> right() { return right; }
 
-    @Override
-    public IBinaryTree<E> parent() { return parent; }
+    
+    public BinaryTree<E> parent() { return parent; }
 
-    @Override
-    public void setLeft(IBinaryTree<E> newLeft) { left = newLeft; }
+    public void setLeft(BinaryTree<E> newLeft) 
+    { 
+        left = newLeft; 
+    }
 
-    @Override
-    public void setRight(IBinaryTree<E> newRight) { right = newRight; }
-
-    @Override
+    public void setRight(BinaryTree<E> newRight) 
+    { 
+        right = newRight; 
+    }
+    
     public Iterator<E> iterator() 
     {
         // lolito
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    @Override
+    
     public boolean isLeftChild() 
     {
         if(parent != null)
         {
-            IBinaryTree left = parent.left();
+            BinaryTree left = parent.left();
             return this == left;
         }
         return false;
     }
-
-    @Override
+    
     public boolean isRightChild() 
     {
         if(parent != null)
         {
-            IBinaryTree right = parent.right();
+            BinaryTree right = parent.right();
             return this == right;
         }
         return false;
     }
 
-    @Override
     public E value() { return value; }
-
-    @Override
+    
     public void setValue(E newValue) { value = newValue; }
     
-    protected void setParent(IBinaryTree<E> newParent) 
+    protected void setParent(BinaryTree<E> newParent) 
     {
         if(!isEmpty())
         {

@@ -12,56 +12,53 @@ import java.util.Iterator;
  * Fernando Figueroa 14175
  * Jose Andres Arenas 14470
  */
-public class BinarySearchTree<E extends Comparable> implements 
-        IBinarySearchTree<E>
+public class BinarySearchTree<E extends Comparable<E>>
 {
     // referencia a la raiz de nuestro arbol binario
-    protected IBinaryTree _tree;
+    protected BinaryTree _tree;
     
-    
-    @Override
     public boolean isEmpty() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return _tree.isEmpty();
     }
 
-    @Override
+    
     public void clear() 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
+    
     public int size() 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
+    
     public void add(E value) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
+    
     public boolean contains(E value) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
+    
     public E get(E value) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
+    
     public E remove(E value) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
+    
     public Iterator<E> iterator() 
     {
         throw new UnsupportedOperationException("Not supported yet.");

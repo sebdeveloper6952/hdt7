@@ -10,7 +10,8 @@ package hdt7;
  * Fernando Figueroa 14175
  * Jose Andres Arenas 14470
  */
-public class Association<K,V>
+public class Association<K extends Comparable<K>,V> implements
+        Comparable<Association<K,V>>
 {
     protected K key;
     protected V value;
@@ -25,4 +26,10 @@ public class Association<K,V>
     public void setKey(K k) { key = k; }
     public V getValue() { return value; }
     public void setValue(V v) { value = v; }
+
+    @Override
+    public int compareTo(Association<K, V> o) 
+    {
+        return key.compareTo(o.getKey());
+    }
 }
