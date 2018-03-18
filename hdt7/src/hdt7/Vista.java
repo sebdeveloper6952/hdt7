@@ -6,8 +6,13 @@
 package hdt7;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -95,6 +100,11 @@ public class Vista extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 580, -1, -1));
 
         jButton2.setText("Escoger archivo");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 580, -1, -1));
 
         jButton3.setText("Traducir");
@@ -127,6 +137,12 @@ public class Vista extends javax.swing.JFrame {
                     {
                         staLinea = staLinea.substring(0, staLinea.length() - 1);
                     }
+                    String[] temp = staLinea.split(",");
+                    if(temp.length > 1)
+                    {
+                        Association<String, String> a = new Association(temp[0], temp[1]);
+                        steArbol.add(a);
+                    }                   
                 }
             }
             catch(Exception e){}
@@ -139,6 +155,32 @@ public class Vista extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        JFileChooser fc = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt", "text");
+        fc.setFileFilter(filter);
+        File file;
+        int returnVal = fc.showOpenDialog(jPanel1);
+        if(returnVal == JFileChooser.APPROVE_OPTION)
+        {
+            file = fc.getSelectedFile();
+            try {
+                BufferedReader in = new BufferedReader(new FileReader(file));
+                String line = in.readLine();
+                while(line != null)
+                {
+                    jTextArea2.append(line + "\n");
+                    line = in.readLine();
+                }
+                    
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
