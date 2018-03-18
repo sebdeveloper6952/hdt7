@@ -127,6 +127,12 @@ public class Vista extends javax.swing.JFrame {
                     {
                         staLinea = staLinea.substring(0, staLinea.length() - 1);
                     }
+                    String[] temp = staLinea.split(",");
+                    if(temp.length > 1)
+                    {
+                        Association<String, String> a = new Association(temp[0], temp[1]);
+                        steArbol.add(a);
+                    }                   
                 }
             }
             catch(Exception e){}
