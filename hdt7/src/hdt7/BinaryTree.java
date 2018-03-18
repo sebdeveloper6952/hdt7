@@ -51,12 +51,6 @@ public class BinaryTree<E>
         newRight.setParent(this);
     }
     
-    public Iterator<E> iterator() 
-    {
-        // lolito
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
     public boolean isLeftChild()
     {
         if(parent != null)

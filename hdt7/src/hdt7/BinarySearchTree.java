@@ -57,11 +57,4 @@ public class BinarySearchTree<E extends Comparable<E>>
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    
-    public Iterator<E> iterator() 
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
 }
