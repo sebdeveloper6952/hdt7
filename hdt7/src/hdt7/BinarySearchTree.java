@@ -39,7 +39,10 @@ public class BinarySearchTree<E extends Comparable<E>>
        return size;
     }
 
-    
+    /**
+     * Agrega al arbol el valor deseado.
+     * @param value Valor que se desea agregar.
+     */
     public void add(E value) 
     {
         BinaryTree<E> newNode = new BinaryTree<>(value);
@@ -49,7 +52,7 @@ public class BinarySearchTree<E extends Comparable<E>>
         }
         else
         {
-          BinaryTree<E> foundNode = steFindnode(root, value);
+          BinaryTree<E> foundNode = steFindNode(root, value);
           foundNode.setValue(value);
           if (foundNode.left()== null)
               foundNode.setLeft(new BinaryTree<E>());
@@ -59,19 +62,34 @@ public class BinarySearchTree<E extends Comparable<E>>
         size++;       
     }
 
-    
-    public boolean contains(E value) 
+    /**
+     * 
+     * @param key El valor que se desea buscar en el arbol.
+     * @return True si el valor esta en el arbol, falso de lo contrario.
+     */
+    public boolean contains(E key)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return get(key) == key;
     }
 
-    
-    public E get(E value) 
+    /**
+     * 
+     * @param key El valor que se desea buscar en el arbol.
+     * @return El valor para asociado a la llave solicitada.
+     */
+    public E get(E key) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(root.isEmpty()) return null;
+        BinaryTree<E> node = steFindNode(root, key);
+        if(node.isEmpty()) return null;
+        return node.value();
     }
 
-    
+    /**
+     * lolito
+     * @param value
+     * @return 
+     */
     public E remove(E value) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -88,24 +106,36 @@ public class BinarySearchTree<E extends Comparable<E>>
         return list;
     }
     
-    protected BinaryTree steFindnode(BinaryTree<E> node,E value)
+    /**
+     * Metodo recursivo para encontrar el nodo donde esta o deberia estar
+     * ubicada la llave pasada como parametro.
+     * @param node El nodo que se considera como raiz actual.
+     * @param key La llave que se desea saber si esta en el arbol.
+     * @return 
+     */
+    protected BinaryTree steFindNode(BinaryTree<E> node,E key)
     {
         if(node.isEmpty()) return node;
         else
         {
-           int steC =  node.value().compareTo(value);
+           int steC =  node.value().compareTo(key);
            if (steC == 0 )return node;
            else if (steC > 0)
            {
-               return steFindnode(node.left(), value);
+               return steFindNode(node.left(), key);
            }
            else 
            {
-              return steFindnode(node.right(), value); 
+              return steFindNode(node.right(), key); 
            }
         }
     }    
     
+    /**
+     * Metodo recursivo para recorrer el nodo deseado en orden.
+     * @param node Nodo que se desea recorrer en orden.
+     * @param list Lista para guardar los nodos en orden.
+     */
     protected void enOrden(BinaryTree<E> node, List<E> list)
     {
         if(node.left() != null && !node.left().isEmpty()) enOrden(node.left(), list);
