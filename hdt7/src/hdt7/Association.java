@@ -11,6 +11,12 @@ public class Association<K extends Comparable<K>,V> implements
     protected K key;
     protected V value;
     
+    
+    /**
+     * se crea el constructor de la clase Association
+     * @param k
+     * @param v 
+     */
     public Association(K k, V v)
     {
         key = k;
