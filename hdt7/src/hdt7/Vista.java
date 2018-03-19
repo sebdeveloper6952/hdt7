@@ -109,6 +109,11 @@ public class Vista extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 580, -1, -1));
 
         jButton3.setText("Traducir");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 580, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 640));
@@ -189,6 +194,22 @@ public class Vista extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        String[] textotemp = jTextArea2.getText().split(" ");
+        for(String temp1: textotemp)
+        {
+            Association<String, String> a = steArbol.get(new Association<String, String>(temp1, null));
+            if(a != null)
+            {
+                jTextArea3.append(a.getValue());
+            }
+            else
+            {
+                jTextArea3.append(" "+ "*" + temp1 + "*" + " ");
+            }
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments

@@ -54,7 +54,8 @@ public class BinarySearchTree<E extends Comparable<E>>
      * metodo el cual agrega nodos al arbol tanto del lado derecho como 
      * del lado izquierdo
      * @param value 
-     */
+     * 
+     */ 
     public void add(E value) 
     {
         BinaryTree<E> newNode = new BinaryTree<>(value);
@@ -64,7 +65,7 @@ public class BinarySearchTree<E extends Comparable<E>>
         }
         else
         {
-          BinaryTree<E> foundNode = steFindnode(root, value);
+          BinaryTree<E> foundNode = steFindNode(root, value);
           foundNode.setValue(value);
           if (foundNode.left()== null)
               foundNode.setLeft(new BinaryTree<E>());
@@ -74,19 +75,34 @@ public class BinarySearchTree<E extends Comparable<E>>
         size++;       
     }
 
-    
-    public boolean contains(E value) 
+    /**
+     * 
+     * @param key El valor que se desea buscar en el arbol.
+     * @return True si el valor esta en el arbol, falso de lo contrario.
+     */
+    public boolean contains(E key)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return get(key) == key;
     }
 
-    
-    public E get(E value) 
+    /**
+     * 
+     * @param key El valor que se desea buscar en el arbol.
+     * @return El valor para asociado a la llave solicitada.
+     */
+    public E get(E key) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(root.isEmpty()) return null;
+        BinaryTree<E> node = steFindNode(root, key);
+        if(node.isEmpty()) return null;
+        return node.value();
     }
 
-    
+    /**
+     * lolito
+     * @param value
+     * @return 
+     */
     public E remove(E value) 
     {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -114,30 +130,32 @@ public class BinarySearchTree<E extends Comparable<E>>
      * @param value
      * @return 
      */
-    protected BinaryTree steFindnode(BinaryTree<E> node,E value)
+    protected BinaryTree steFindNode(BinaryTree<E> node,E key)
     {
         if(node.isEmpty()) return node;
         else
         {
-           int steC =  node.value().compareTo(value);
+           int steC =  node.value().compareTo(key);
            if (steC == 0 )return node;
            else if (steC > 0)
            {
-               return steFindnode(node.left(), value);
+               return steFindNode(node.left(), key);
            }
            else 
            {
-              return steFindnode(node.right(), value); 
+              return steFindNode(node.right(), key); 
            }
         }
     }    
     
+
     
     /** 
      * se crea un metodo el cual utiliza la lista "lista" el cual ordena de 
      * forma alfabetica las palabras que se quieren traducir 
      * @param node
      * @param list 
+
      */
     protected void enOrden(BinaryTree<E> node, List<E> list)
     {
