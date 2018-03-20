@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hdt7;
 
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,8 +8,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author Fernando Figueroa
+ * Sebastian Arriola 11463
+ * Fernando Figueroa 14175
+ * Jose Andres Arenas 14470
  */
 public class BinarySearchTreeTest {
     

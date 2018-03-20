@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hdt7;
 
 import java.io.BufferedReader;
@@ -18,8 +13,9 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author Majo
+ * Sebastian Arriola 11463
+ * Fernando Figueroa 14175
+ * Jose Andres Arenas 14470
  */
 public class Vista extends javax.swing.JFrame {
 
